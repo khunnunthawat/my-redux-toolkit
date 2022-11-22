@@ -1,7 +1,9 @@
 import React from 'react'
 import * as Icon from '@mui/icons-material'
+import { useSelector } from 'react-redux'
 
 const Navbar = () => {
+  const name = useSelector((state: any) => state.user.name)
   return (
     <div className='navbar'>
       <div className='navbarWrapper'>
@@ -26,7 +28,7 @@ const Navbar = () => {
             src='https://images.unsplash.com/profile-fb-1547572180-93a860f0a32b.jpg?auto=format&fit=crop&w=150&h=150&q=60&crop=faces&bg=fff'
             alt='avatar_profile'
           />
-          <span className='navbarName'>EIFFEL</span>
+          <span className='navbarName'>{name}</span>
           <Icon.ArrowDropDown />
         </div>
       </div>

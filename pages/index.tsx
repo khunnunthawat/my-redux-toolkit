@@ -2,8 +2,10 @@ import Head from 'next/head'
 import type { NextPage } from 'next'
 
 import { Leftbar, Navbar, Rightbar, Update } from '../components'
+import { useState } from 'react'
 
 const Home: NextPage = () => {
+  const [name, setName] = useState('EIFFEL')
   return (
     <>
       <Head>

@@ -1,13 +1,16 @@
 import React from 'react'
+import { useSelector } from 'react-redux'
 
 interface RecommendationProps {
   type: string
 }
 
 function Recommendation({ type }: RecommendationProps) {
+  const name = useSelector((state: any) => state.user.name)
+
   const title =
     type === 'user'
-      ? 'Reccomended for EIFFEL'
+      ? 'Reccomended for ' + name
       : type === 'popular'
       ? 'Popular on Lama App'
       : "Editor's choice"
