@@ -1,5 +1,4 @@
 import { createSlice } from '@reduxjs/toolkit'
-import store from './store'
 
 export const userSlice: any = createSlice({
   name: 'user',
@@ -12,9 +11,18 @@ export const userSlice: any = createSlice({
       state.name = action.payload.name
       state.email = action.payload.email
     },
+    remove: (state: any) =>
+      (state = {
+        name: '',
+        email: '',
+      }),
+    // addHello after update function
+    hello: (state: any, action: any) => {
+      state.name = 'Hi' + action.payload.name
+    },
   },
 })
 
-export const { update } = userSlice.actions
+export const { update, remove, hello } = userSlice.actions
 
 export default userSlice.reducer

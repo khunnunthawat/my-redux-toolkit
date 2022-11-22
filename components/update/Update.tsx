@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import Warning from '../warning/Warning'
 import { useDispatch, useSelector } from 'react-redux'
-import { update } from '../../redux/userSlice'
+import { remove, update } from '../../redux/userSlice'
 
 function Update() {
   const [name, setName] = useState('')
@@ -19,12 +19,19 @@ function Update() {
     )
   }
 
+  const handleDelete = (e: any) => {
+    e.preventDefault()
+    dispatch(remove())
+  }
+
   return (
     <div className='update'>
       <div className='updateWrapper'>
         <h3 className='updateTitle'>Update Your Account</h3>
         <Warning />
-        <button className='delete'>Delete Account</button>
+        <button className='delete' onClick={handleDelete}>
+          Delete Account
+        </button>
         <div className='updateContainer'>
           <form>
             <div className='formItem'>
